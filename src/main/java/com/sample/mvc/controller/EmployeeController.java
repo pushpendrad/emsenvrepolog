@@ -39,12 +39,12 @@ public class EmployeeController {
 	}
 
 	@RequestMapping("/list")
-	public String listContacts(Map<String, Object> map, HttpServletRequest request) throws UnknownHostException {
+	public String listContacts(Map<String, Object> map) throws UnknownHostException {
 		map.put("contact", new EmployeeCommand());
 		map.put("contactList", employeeService.listContact());
 		logger.info(" ECS_cluster = " + System.getenv("ECS_CLUSTER") + " " + " Server address = "
 				+ InetAddress.getLocalHost() + " Continer Host Name = " + System.getenv("HOST_NAME") + " HTTP Method = "
-				+ "GET" + " Resource path = " + "/list" + " Application Name = " + "EMSService"+" request = "+request.toString());
+				+ "GET" + " Resource path = " + "/list" + " Application Name = " + "EMSService");
 
 		return "list";
 	}
